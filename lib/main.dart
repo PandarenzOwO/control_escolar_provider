@@ -1,3 +1,4 @@
+import 'package:control_escolar/home_page.dart';
 import 'package:flutter/material.dart';
 //import 'package:provider/provider.dart';
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          //'/': (context) => ProductosPage(),
+          '/': (context) => HomePage(),
         });
   }
 }

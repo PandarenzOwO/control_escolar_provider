@@ -13,33 +13,42 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue.shade300,
+        primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
           title: Text(
             "Control Escolar",
             style: TextStyle(
-              fontSize: 20.0,
+              fontSize: 26.0,
               color: Colors.white,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w600,
               fontStyle: FontStyle.italic,
             ),
           ),
         ),
         body: Padding(
           padding: EdgeInsets.all(10.0),
-          child: Column(
+          child: ListView(
             children: [
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
-              Text("data"),
+              Column(
+                children: [
+                  Text("Carta agregar alumno"),
+                  Text("Carta lista de alumnos"),
+                  Text("Carta alumnos graduados"),
+                ],
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget cartas() {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Card(),
     );
   }
 }
