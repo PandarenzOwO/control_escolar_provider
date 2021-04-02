@@ -88,8 +88,8 @@ class _HomePageState extends State<HomePage> {
                   titulo,
                   style: TextStyle(
                     fontSize: 24.0,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.normal,
                   ),
                 ),
                 SizedBox(height: 10.0),

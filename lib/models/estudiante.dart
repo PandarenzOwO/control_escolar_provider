@@ -1,23 +1,20 @@
 class Estudiante {
   int id;
   String nombre;
-  String apepat;
-  String apemat;
+  String apellidos;
   int edad;
   int grado;
   String grupo;
-  int idprofesor;
   String foto;
+  bool activo;
 
-  Estudiante({
-    this.id,
-    this.nombre,
-    this.apepat,
-    this.apemat,
-    this.edad,
-    this.grado,
-    this.grupo,
-    this.idprofesor,
-    this.foto,
-  });
+  Estudiante(
+      {this.id,
+      this.nombre,
+      this.apellidos,
+      this.edad,
+      this.grado,
+      this.grupo,
+      this.foto,
+      this.activo});
 }
