@@ -39,11 +39,18 @@ class _HomePageState extends State<HomePage> {
                       "https://img.icons8.com/dusk/452/add-user-group-man-woman.png",
                       "Aqui podra agregar nuevos alumnos a la escuela",
                       "agregar"),
-                  navegadorCartas(context, "titulo", "imagen", "texto", "ruta"),
-                  navegadorCartas(context, "titulo", "imagen", "texto", "ruta"),
-                  // Text("Carta agregar alumno"),
-                  // Text("Carta lista de alumnos"),
-                  // Text("Carta alumnos graduados"),
+                  navegadorCartas(
+                      context,
+                      "Lista de Alumnos",
+                      "https://img.icons8.com/dusk/452/list.png",
+                      "Aqui podra ver a los alumnos que se encuentran inscritos en la institucion",
+                      "lista"),
+                  navegadorCartas(
+                      context,
+                      "Bajas de Alumnos",
+                      "https://img.icons8.com/dusk/452/denied.png",
+                      "Aqui podra ver a los alumnos que se han dado de baja en esta institucion",
+                      "bajas"),
                 ],
               ),
             ],
@@ -85,9 +92,16 @@ class _HomePageState extends State<HomePage> {
                     fontStyle: FontStyle.italic,
                   ),
                 ),
+                SizedBox(height: 10.0),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: Text("\n" + texto, textAlign: TextAlign.center),
+                  child: Center(
+                    child: Text(
+                      texto,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
                 ),
               ],
             ))
