@@ -67,18 +67,20 @@ class EstudiantesBloc {
 
   void _agregarEstudiante(Estudiante p) {
     if (carrito.any((x) => x.id == p.id)) {
-      p.cantidad--;
+      p.activo = false;
       //carrito.where((x) => x.id == p.id).first.cantidad++;
-      carrito.firstWhere((x) => x.id == p.id).cantidad++;
+      carrito.firstWhere((x) => x.id == p.id).activo = true;
     } else {
       Estudiante ptemp = Estudiante(
-          cantidad: 1,
-          descripcion: p.descripcion,
+          activo: true,
+          nombre: p.nombre,
           foto: p.foto,
           id: p.id,
-          nombre: p.nombre,
-          precio: p.precio);
-      p.cantidad--;
+          apellidos: p.apellidos,
+          edad: p.edad,
+          grado: p.grado,
+          grupo: p.grupo);
+      p.activo = false;
       carrito.add(ptemp);
     }
     listaEstudiantesSink.add(lista);
@@ -87,9 +89,9 @@ class EstudiantesBloc {
 
   void _quitarEstudiante(Estudiante p) {
     if (carrito.any((x) => x.id == p.id)) {
-      p.cantidad--;
-      lista.firstWhere((x) => x.id == p.id).cantidad++;
-      if (p.cantidad == 0) {
+      p.activo = false;
+      lista.firstWhere((x) => x.id == p.id).activo = true;
+      if (p.activo == false) {
         carrito.remove(p);
       }
       listaEstudiantesSink.add(lista);
