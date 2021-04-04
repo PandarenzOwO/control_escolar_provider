@@ -13,6 +13,33 @@ class EstudiantesBloc {
         grupo: "A",
         foto: "https://img.icons8.com/dusk/64/human-head.png",
         activo: true),
+    Estudiante(
+        id: 2,
+        nombre: "Godie",
+        apellidos: "Nomeacuerdo",
+        edad: 21,
+        grado: 10,
+        grupo: "B",
+        foto: "https://img.icons8.com/dusk/64/human-head.png",
+        activo: false),
+    Estudiante(
+        id: 3,
+        nombre: "Robert",
+        apellidos: "Hernandez",
+        edad: 20,
+        grado: 8,
+        grupo: "A",
+        foto: "https://img.icons8.com/dusk/64/human-head.png",
+        activo: true),
+    Estudiante(
+        id: 4,
+        nombre: "Angel",
+        apellidos: "Mendez",
+        edad: 12,
+        grado: 2,
+        grupo: "E",
+        foto: "https://img.icons8.com/dusk/64/human-head.png",
+        activo: true),
   ];
 
   //Lista de estudiantes en el carrito de compras
