@@ -78,10 +78,70 @@ class _FormExampleState extends State<AgregarPage> {
                 labelText: "Ingrese los apellidos del alumno"),
           ),
         ),
+        SizedBox(height: 15),
         Row(
-          children: [],
+          children: [
+            SizedBox(
+              width: 20,
+              height: 20,
+            ),
+            Text("Semestre: "),
+            //MyStatefulWidget(),
+          ],
         ),
       ],
     );
   }
 }
+
+//////////////////////***************************//////////////////////
+// class MyStatefulWidget extends StatefulWidget {
+//   const MyStatefulWidget({Key key}) : super(key: key);
+
+//   @override
+//   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+// }
+
+// /// This is the private State class that goes with MyStatefulWidget.
+// class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+//   String dropdownValue = 'Primero';
+//   List<String> valores = <String>[
+//     'Primero',
+//     'Segundo',
+//     'Tercero',
+//     'Cuarto',
+//     'Quinto',
+//     'Sexto',
+//     'Septimo',
+//     'Octavo',
+//     'Noveno',
+//     'Decimo',
+//   ];
+//   @override
+//   Widget build(BuildContext context) {
+//     return DropdownButton<String>(
+//       value: dropdownValue,
+//       icon: const Icon(Icons.keyboard_arrow_down_rounded),
+//       iconSize: 24,
+//       elevation: 8,
+//       style: const TextStyle(color: Colors.black),
+//       underline: Container(
+//         height: 1,
+//         color: Colors.blueAccent,
+//       ),
+//       onChanged: (String newValue) {
+//         setState(() {
+//           dropdownValue = newValue;
+//         });
+//       },
+//       items: valores.map<DropdownMenuItem<String>>((String value) {
+//         return DropdownMenuItem<String>(
+//           value: value,
+//           child: Text(value),
+//         );
+//       }).toList(),
+//     );
+//   }
+// }
+
+//////////////////////***************************//////////////////////
