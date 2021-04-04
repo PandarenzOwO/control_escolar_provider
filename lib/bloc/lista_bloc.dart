@@ -112,17 +112,6 @@ class _ListaPageState extends State<ListaPage> {
                         },
                         iconSize: 45.0,
                       ),
-                      // Text(
-                      //   //p.activo.toString(),
-                      //   p.activo == true ? "-" : "+",
-                      //   textAlign: TextAlign.center,
-                      //   style: TextStyle(
-                      //       fontSize: 30.0,
-                      //       fontWeight: FontWeight.bold,
-                      //       color: p.activo == true
-                      //           ? Colors.green[600]
-                      //           : Colors.red[600]),
-                      // ),
                     ],
                   ),
                 ),
