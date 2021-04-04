@@ -77,36 +77,38 @@ class _BajasPageState extends State<BajasPage> {
                               ],
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconButton(
-                                  iconSize: 45.0,
-                                  icon: Icon(Icons.refresh_outlined,
-                                      color: Colors.blue[800]),
-                                  onPressed: () {
-                                    if (p.activo == true) {
-                                      estudiantesBloc
-                                          .quitarEstudiantesCarritoSink
-                                          .add(p);
-                                    }
-                                  },
-                                ),
-                                Text(
-                                  "Reintegrar \na la escuela",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400,
-                                    color: p.activo == true
-                                        ? Colors.blue[800]
-                                        : Colors.red[800],
+                          InkWell(
+                            child: Container(
+                              padding: EdgeInsets.only(right: 10.0),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    Icons.refresh_outlined,
+                                    size: 45.0,
+                                    color: Colors.blue[800],
                                   ),
-                                )
-                              ],
+                                  Text(
+                                    "Reintegrar \na la escuela",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: p.activo == true
+                                          ? Colors.blue[800]
+                                          : Colors.red[800],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
+                            onTap: () {
+                              if (p.activo == true) {
+                                estudiantesBloc.quitarEstudiantesCarritoSink
+                                    .add(p);
+                              }
+                            },
                           ),
                         ],
                       ),
