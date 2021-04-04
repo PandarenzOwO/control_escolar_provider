@@ -34,7 +34,7 @@ class _BajasPageState extends State<BajasPage> {
 
   Widget listCarrito(AsyncSnapshot<List<Estudiante>> snapshot) {
     return snapshot.data.length == 0
-        ? Center(child: Text("No hay alumnos dados de baja"))
+        ? Center(child: Text("No hay alumnos dados de baja actualmente"))
         : Column(children: [
             Expanded(
               child: ListView.builder(

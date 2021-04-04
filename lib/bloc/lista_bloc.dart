@@ -10,36 +10,19 @@ class ListaPage extends StatefulWidget {
 class _ListaPageState extends State<ListaPage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text(
-              'Lista de Alumnos',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
-                fontSize: 28.0,
-              ),
-              textAlign: TextAlign.center,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Lista de Alumnos',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontSize: 26.0,
           ),
-          // actions: [
-          //   IconButton(
-          //     icon: Icon(Icons.shopping_cart_rounded),
-          //     onPressed: () {
-          //       Navigator.pushNamed(context, "bajas");
-          //     },
-          //   )
-          // ],
+          textAlign: TextAlign.center,
         ),
-        body: streamProductos(),
       ),
+      body: streamProductos(),
     );
   }
 
@@ -115,7 +98,7 @@ class _ListaPageState extends State<ListaPage> {
                   child: Column(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.archive_outlined,
+                        icon: Icon(Icons.person_remove_rounded,
                             color: p.activo == true
                                 ? Colors.green[900]
                                 : Colors.red[900]),
