@@ -1,5 +1,6 @@
 import 'package:control_escolar/bloc/alumnos_bloc.dart';
 import 'package:control_escolar/models/estudiante.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ListaPage extends StatefulWidget {
@@ -108,6 +109,28 @@ class _ListaPageState extends State<ListaPage> {
                                 .add(p);
                           } else {
                             print("Ese alumno ya esta dado de baja");
+                            showDialog(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: Center(
+                                    child: Text(
+                                  "Alerta",
+                                  style: TextStyle(fontSize: 24),
+                                )),
+                                content: Text(
+                                  "Este alumno ya se \nencuentra dado de baja",
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text("Aceptar")),
+                                ],
+                              ),
+                              barrierDismissible: false,
+                            );
                           }
                         },
                         iconSize: 45.0,
