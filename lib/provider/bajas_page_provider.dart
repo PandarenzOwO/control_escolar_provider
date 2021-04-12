@@ -1,6 +1,7 @@
-import 'package:control_escolar/bloc/alumnos_bloc.dart';
-import 'package:control_escolar/models/estudiante.dart';
+import 'package:control_escolar_provider/provider/alumnos_provider.dart';
+import 'package:control_escolar_provider/models/estudiante.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BajasPage extends StatefulWidget {
   @override
@@ -18,29 +19,20 @@ class _BajasPageState extends State<BajasPage> {
               fontWeight: FontWeight.bold,
             )),
       ),
-      body: streamCarrito(),
+      body: listCarrito(context),
     );
   }
 
-  Widget streamCarrito() {
-    return StreamBuilder<List<Estudiante>>(
-      initialData: estudiantesBloc.carrito,
-      stream: estudiantesBloc.carritoEstudiantesStream,
-      builder: (context, snapshot) {
-        return listCarrito(snapshot);
-      },
-    );
-  }
-
-  Widget listCarrito(AsyncSnapshot<List<Estudiante>> snapshot) {
-    return snapshot.data.length == 0
+  Widget listCarrito(BuildContext context) {
+    final carrito = Provider.of<EstudiantesProvider>(context);
+    return carrito.getCarrito.length == 0
         ? Center(child: Text("No hay alumnos dados de baja actualmente"))
         : Column(children: [
             Expanded(
               child: ListView.builder(
-                itemCount: snapshot.data.length,
+                itemCount: carrito.getCarrito.length,
                 itemBuilder: (BuildContext context, i) {
-                  Estudiante p = snapshot.data[i];
+                  Estudiante p = carrito.getCarrito[i];
                   return Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Card(
@@ -105,8 +97,7 @@ class _BajasPageState extends State<BajasPage> {
                             ),
                             onTap: () {
                               if (p.activo == true) {
-                                estudiantesBloc.quitarEstudiantesCarritoSink
-                                    .add(p);
+                                carrito.pagar();
                               }
                             },
                           ),

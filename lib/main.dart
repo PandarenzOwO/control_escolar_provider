@@ -1,9 +1,8 @@
-import 'package:control_escolar/bloc/agregar_bloc.dart';
-import 'package:control_escolar/bloc/bajas_bloc.dart';
-import 'package:control_escolar/bloc/lista_bloc.dart';
-import 'package:control_escolar/home_page.dart';
+import 'package:control_escolar_provider/home_page.dart';
+import 'package:control_escolar_provider/provider/agregar_page_provider.dart';
+import 'package:control_escolar_provider/provider/bajas_page_provider.dart';
+import 'package:control_escolar_provider/provider/lista_page_provider.dart';
 import 'package:flutter/material.dart';
-//import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 

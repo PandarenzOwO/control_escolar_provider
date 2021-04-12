@@ -1,7 +1,8 @@
-import 'package:control_escolar/bloc/alumnos_bloc.dart';
-import 'package:control_escolar/models/estudiante.dart';
+import 'package:control_escolar_provider/provider/alumnos_provider.dart';
+import 'package:control_escolar_provider/models/estudiante.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListaPage extends StatefulWidget {
   @override
@@ -23,25 +24,16 @@ class _ListaPageState extends State<ListaPage> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: streamProductos(),
+      body: listProductos(context),
     );
   }
 
-  Widget streamProductos() {
-    return StreamBuilder(
-      initialData: estudiantesBloc.lista,
-      stream: estudiantesBloc.listaEstudiantesStream,
-      builder: (context, snapshot) {
-        return listProductos(snapshot);
-      },
-    );
-  }
-
-  Widget listProductos(AsyncSnapshot<List<Estudiante>> snapshot) {
+  Widget listProductos(BuildContext context) {
+    final listaAlumnos = Provider.of<EstudiantesProvider>(context);
     return ListView.builder(
-      itemCount: snapshot.data.length,
+      itemCount: listaAlumnos.getProductos.length,
       itemBuilder: (context, i) {
-        Estudiante p = snapshot.data[i];
+        Estudiante p = listaAlumnos.getProductos[i];
         return Padding(
           padding:
               EdgeInsets.only(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
@@ -105,8 +97,7 @@ class _ListaPageState extends State<ListaPage> {
                                 : Colors.red[900]),
                         onPressed: () {
                           if (p.activo == true) {
-                            estudiantesBloc.agregarEstudiantesCarritoSink
-                                .add(p);
+                            listaAlumnos.agregarCarrito(p);
                           } else {
                             print("Ese alumno ya esta dado de baja");
                             showDialog(
