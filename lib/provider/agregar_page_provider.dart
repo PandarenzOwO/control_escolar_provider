@@ -38,12 +38,37 @@ class _FormExampleState extends State<AgregarPage> {
   TextEditingController txtedad = TextEditingController();
   TextEditingController txtfoto = TextEditingController();
 
-  Widget generateInput(controller, validator, hintText) {
+  Widget generateInputText(controller, validator, hintText) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
+        keyboardType: TextInputType.text,
         controller: controller,
-        validator: (val) => validator(val),
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Por favor rellene el campo';
+          } else {
+            return null;
+          }
+        },
+        decoration: InputDecoration(labelText: hintText),
+      ),
+    );
+  }
+
+  Widget generateInputNumber(controller, validator, hintText) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: TextFormField(
+        keyboardType: TextInputType.number,
+        controller: controller,
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Por favor rellene el campo';
+          } else {
+            return null;
+          }
+        },
         decoration: InputDecoration(labelText: hintText),
       ),
     );
@@ -56,15 +81,15 @@ class _FormExampleState extends State<AgregarPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 10.0),
-        generateInput(txtnombre, (String text) => text.isEmpty,
+        generateInputText(txtnombre, (String text) => text.isEmpty,
             "Ingrese el nombre del alumno"),
-        generateInput(txtapellidos, (String text) => text.isEmpty,
+        generateInputText(txtapellidos, (String text) => text.isEmpty,
             "Ingrese sus apellidos"),
-        generateInput(txtgrado, (String text) => text.isEmpty,
+        generateInputNumber(txtgrado, (String text) => text.isEmpty,
             "Ingrese el semestre en el que se encuentra"),
-        generateInput(txtgrupo, (String text) => text.isEmpty,
+        generateInputText(txtgrupo, (String text) => text.isEmpty,
             "Ingresa el grupo al que asiste"),
-        generateInput(
+        generateInputNumber(
             txtedad, (String text) => text.isEmpty, "Ingresa su edad"),
         /*
         generateInput(txtfoto, (String text) => text.isEmpty,
@@ -81,21 +106,20 @@ class _FormExampleState extends State<AgregarPage> {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
               onPressed: () {
-                print("Agregado");
-                listaAlumnos.agregarEstudiante(Estudiante(
-                    nombre: txtnombre.text,
-                    apellidos: txtapellidos.text,
-                    edad: int.parse(txtedad.text),
-                    grado: int.parse(txtgrado.text),
-                    grupo: txtgrupo.text,
-                    //foto: txtfoto.text,
-                    activo: true));
+                listaAlumnos.agregarEstudiante(
+                  Estudiante(
+                      nombre: txtnombre.text,
+                      apellidos: txtapellidos.text,
+                      edad: int.parse(txtedad.text),
+                      grado: int.parse(txtgrado.text),
+                      grupo: txtgrupo.text,
+                      activo: true),
+                );
                 txtnombre.clear();
                 txtapellidos.clear();
                 txtedad.clear();
                 txtgrado.clear();
                 txtgrupo.clear();
-                //txtfoto.clear();
               },
               child: Row(
                 children: [
