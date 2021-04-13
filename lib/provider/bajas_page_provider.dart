@@ -97,7 +97,7 @@ class _BajasPageState extends State<BajasPage> {
                             ),
                             onTap: () {
                               if (p.activo == true) {
-                                carrito.pagar();
+                                carrito.quitarCarro(p);
                               }
                             },
                           ),
