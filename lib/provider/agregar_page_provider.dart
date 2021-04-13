@@ -59,7 +59,9 @@ class _FormExampleState extends State<AgregarPage> {
         generateInput(
             txtnombre, (String text) => text.isEmpty, "Ingresa el nombre"),
         generateInput(
-            txtgrado, (String text) => text.isEmpty, "Ingresa los grados xd"),
+            txtnombre, (String text) => text.isEmpty, "Ingresa los apellidos"),
+        generateInput(
+            txtgrado, (String text) => text.isEmpty, "Ingresa los grados"),
         generateInput(
             txtgrupo, (String text) => text.isEmpty, "Ingresa el grupo"),
         generateInput(
@@ -76,13 +78,13 @@ class _FormExampleState extends State<AgregarPage> {
               onPressed: () {
                 print("Agregado");
                 listaAlumnos.agregarEstudiante(Estudiante(
-                    id: 123,
-                    nombre: "Fabian",
-                    apellidos: "Cordero M",
-                    edad: 22,
-                    grado: 10,
-                    grupo: "A",
-                    foto: "https://img.icons8.com/dusk/64/human-head.png",
+//                    id: int.parse(txtid.toString()),
+                    nombre: txtnombre.text,
+                    apellidos: txtapellidos.text,
+                    edad: int.parse(txtedad.text),
+                    grado: int.parse(txtedad.text),
+                    grupo: txtgrupo.text,
+                    foto: txtfoto.text,
                     activo: true));
               },
               child: Row(
