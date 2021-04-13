@@ -24,11 +24,11 @@ class _ListaPageState extends State<ListaPage> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: listProductos(context),
+      body: listaDeAlumnos(context),
     );
   }
 
-  Widget listProductos(BuildContext context) {
+  Widget listaDeAlumnos(BuildContext context) {
     final listaAlumnos = Provider.of<EstudiantesProvider>(context);
     return ListView.builder(
       itemCount: listaAlumnos.getLista.length,
