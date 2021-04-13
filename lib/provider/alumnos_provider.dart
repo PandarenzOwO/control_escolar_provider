@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:control_escolar_provider/models/estudiante.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -42,6 +44,13 @@ class EstudiantesProvider with ChangeNotifier {
   ];
 
   List<Estudiante> _carrito = [];
+
+  void agregarEstudiante(Estudiante p) {
+    var r = Random();
+    p.id = r.nextInt(43434);
+    _lista.add(p);
+    notifyListeners();
+  }
 
   void agregarCarrito(Estudiante p) {
     if (_carrito.any((x) => x.id == p.id)) {
