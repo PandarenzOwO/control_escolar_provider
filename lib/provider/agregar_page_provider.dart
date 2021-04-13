@@ -58,8 +58,8 @@ class _FormExampleState extends State<AgregarPage> {
         SizedBox(height: 10.0),
         generateInput(
             txtnombre, (String text) => text.isEmpty, "Ingresa el nombre"),
-        generateInput(
-            txtnombre, (String text) => text.isEmpty, "Ingresa los apellidos"),
+        generateInput(txtapellidos, (String text) => text.isEmpty,
+            "Ingresa los apellidos"),
         generateInput(
             txtgrado, (String text) => text.isEmpty, "Ingresa los grados"),
         generateInput(
@@ -78,7 +78,6 @@ class _FormExampleState extends State<AgregarPage> {
               onPressed: () {
                 print("Agregado");
                 listaAlumnos.agregarEstudiante(Estudiante(
-//                    id: int.parse(txtid.toString()),
                     nombre: txtnombre.text,
                     apellidos: txtapellidos.text,
                     edad: int.parse(txtedad.text),
