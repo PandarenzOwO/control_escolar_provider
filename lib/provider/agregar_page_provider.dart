@@ -9,11 +9,11 @@ class AgregarEstudiantePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Agregar Alumnos',
+          "Agregar Alumnos",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
-            fontSize: 26.0,
+            fontSize: 20.0,
           ),
         ),
       ),
@@ -26,21 +26,20 @@ class AgregarPage extends StatefulWidget {
   AgregarPage({Key key}) : super(key: key);
 
   @override
-  _FormExampleState createState() => _FormExampleState();
+  _AgregarPageState createState() => _AgregarPageState();
 }
 
-class _FormExampleState extends State<AgregarPage> {
-  TextEditingController txtid = TextEditingController();
+class _AgregarPageState extends State<AgregarPage> {
   TextEditingController txtnombre = TextEditingController();
   TextEditingController txtapellidos = TextEditingController();
   TextEditingController txtgrado = TextEditingController();
   TextEditingController txtgrupo = TextEditingController();
-  TextEditingController txtedad = TextEditingController();
   TextEditingController txtfoto = TextEditingController();
+  TextEditingController txtedad = TextEditingController();
 
   Widget generateInputText(controller, validator, hintText) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
         keyboardType: TextInputType.text,
         controller: controller,
@@ -58,7 +57,7 @@ class _FormExampleState extends State<AgregarPage> {
 
   Widget generateInputNumber(controller, validator, hintText) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
         keyboardType: TextInputType.number,
         controller: controller,
@@ -80,7 +79,7 @@ class _FormExampleState extends State<AgregarPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 10.0),
+        SizedBox(height: 20.0),
         generateInputText(txtnombre, (String text) => text.isEmpty,
             "Ingrese el nombre del alumno"),
         generateInputText(txtapellidos, (String text) => text.isEmpty,
@@ -88,57 +87,45 @@ class _FormExampleState extends State<AgregarPage> {
         generateInputNumber(txtgrado, (String text) => text.isEmpty,
             "Ingrese el semestre en el que se encuentra"),
         generateInputText(txtgrupo, (String text) => text.isEmpty,
-            "Ingresa el grupo al que asiste"),
+            "Ingrese el grupo al que pertenece"),
         generateInputNumber(
-            txtedad, (String text) => text.isEmpty, "Ingresa su edad"),
-        /*
-        generateInput(txtfoto, (String text) => text.isEmpty,
-            "Ingresa el link o url de su foto"),
-            */
-        SizedBox(
-          height: 15,
-        ),
+            txtedad, (String text) => text.isEmpty, "Ingrese su edad"),
+        SizedBox(height: 15.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-              ),
-              onPressed: () {
-                listaAlumnos.agregarEstudiante(
-                  Estudiante(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue)),
+                onPressed: () {
+                  listaAlumnos.agregarEstudiante(Estudiante(
                       nombre: txtnombre.text,
                       apellidos: txtapellidos.text,
                       edad: int.parse(txtedad.text),
                       grado: int.parse(txtgrado.text),
                       grupo: txtgrupo.text,
-                      activo: true),
-                );
-                txtnombre.clear();
-                txtapellidos.clear();
-                txtedad.clear();
-                txtgrado.clear();
-                txtgrupo.clear();
-              },
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Agregar alumno",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
-                    ),
-                  )
-                ],
-              ),
-            ),
+                      activo: true));
+                  txtnombre.clear();
+                  txtapellidos.clear();
+                  txtgrado.clear();
+                  txtgrupo.clear();
+                  txtedad.clear();
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.add, color: Colors.white),
+                    Text(
+                      "Agregar Alumno",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    )
+                  ],
+                ))
           ],
-        ),
+        )
       ],
     );
   }

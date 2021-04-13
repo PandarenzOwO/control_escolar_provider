@@ -16,8 +16,8 @@ class EstudiantesProvider with ChangeNotifier {
         activo: true),
     Estudiante(
         id: 2,
-        nombre: "Godie",
-        apellidos: "Nomeacuerdo",
+        nombre: "J. Diego",
+        apellidos: "Parra M.",
         edad: 21,
         grado: 10,
         grupo: "B",
