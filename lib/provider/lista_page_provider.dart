@@ -52,19 +52,19 @@ class _ListaPageState extends State<ListaPage> {
                 ),
                 SizedBox(width: 5),
                 Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      p.nombre + " " + p.apellidos,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.blue[900],
-                        fontWeight: FontWeight.bold,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        p.nombre + " " + p.apellidos,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.blue[900],
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(
+                      Text(
                         "Semestre: " +
                             p.grado.toString() +
                             ", Grupo: " +
@@ -72,20 +72,26 @@ class _ListaPageState extends State<ListaPage> {
                         style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
-                        )),
-                    Text("Numero de control: " + p.id.toString(),
+                        ),
+                      ),
+                      Text(
+                        "Numero de control: " + p.id.toString(),
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
-                        )),
-                    //Text("Precio", style: TextStyle(fontSize: 16.0)),
-                    Text("Edad: " + p.edad.toString() + " años",
+                        ),
+                      ),
+                      //Text("Precio", style: TextStyle(fontSize: 16.0),),
+                      Text(
+                        "Edad: " + p.edad.toString() + " años",
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
-                        ))
-                  ],
-                )),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Column(
@@ -104,20 +110,22 @@ class _ListaPageState extends State<ListaPage> {
                               context: context,
                               builder: (_) => AlertDialog(
                                 title: Center(
-                                    child: Text(
-                                  "Alerta",
-                                  style: TextStyle(fontSize: 24),
-                                )),
+                                  child: Text(
+                                    "Alerta",
+                                    style: TextStyle(fontSize: 24),
+                                  ),
+                                ),
                                 content: Text(
                                   "Este alumno ya se \nencuentra dado de baja",
                                   textAlign: TextAlign.center,
                                 ),
                                 actions: [
                                   TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text("Aceptar")),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text("Aceptar"),
+                                  ),
                                 ],
                               ),
                               barrierDismissible: false,
