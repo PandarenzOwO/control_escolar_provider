@@ -60,7 +60,9 @@ class _ListaPageState extends State<ListaPage> {
                         p.nombre + " " + p.apellidos,
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.blue[900],
+                          color: p.activo == true
+                              ? Colors.blue[900]
+                              : Colors.red[900],
                           fontWeight: FontWeight.bold,
                         ),
                       ),
