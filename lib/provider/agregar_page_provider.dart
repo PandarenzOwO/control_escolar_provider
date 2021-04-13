@@ -56,38 +56,61 @@ class _FormExampleState extends State<AgregarPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 10.0),
-        generateInput(
-            txtnombre, (String text) => text.isEmpty, "Ingresa el nombre"),
+        generateInput(txtnombre, (String text) => text.isEmpty,
+            "Ingrese el nombre del alumno"),
         generateInput(txtapellidos, (String text) => text.isEmpty,
-            "Ingresa los apellidos"),
+            "Ingrese sus apellidos"),
+        generateInput(txtgrado, (String text) => text.isEmpty,
+            "Ingrese el semestre en el que se encuentra"),
+        generateInput(txtgrupo, (String text) => text.isEmpty,
+            "Ingresa el grupo al que asiste"),
         generateInput(
-            txtgrado, (String text) => text.isEmpty, "Ingresa los grados"),
-        generateInput(
-            txtgrupo, (String text) => text.isEmpty, "Ingresa el grupo"),
-        generateInput(
-            txtedad, (String text) => text.isEmpty, "Ingresa la edad"),
-        generateInput(
-            txtfoto, (String text) => text.isEmpty, "Ingresa la foto"),
+            txtedad, (String text) => text.isEmpty, "Ingresa su edad"),
+        /*
+        generateInput(txtfoto, (String text) => text.isEmpty,
+            "Ingresa el link o url de su foto"),
+            */
         SizedBox(
-          height: 10,
+          height: 15,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              ),
               onPressed: () {
                 print("Agregado");
                 listaAlumnos.agregarEstudiante(Estudiante(
                     nombre: txtnombre.text,
                     apellidos: txtapellidos.text,
                     edad: int.parse(txtedad.text),
-                    grado: int.parse(txtedad.text),
+                    grado: int.parse(txtgrado.text),
                     grupo: txtgrupo.text,
-                    foto: txtfoto.text,
+                    //foto: txtfoto.text,
                     activo: true));
+                txtnombre.clear();
+                txtapellidos.clear();
+                txtedad.clear();
+                txtgrado.clear();
+                txtgrupo.clear();
+                //txtfoto.clear();
               },
               child: Row(
-                children: [Icon(Icons.add), Text("Popo")],
+                children: [
+                  Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "Agregar alumno",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                    ),
+                  )
+                ],
               ),
             ),
           ],

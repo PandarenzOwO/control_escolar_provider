@@ -17,16 +17,14 @@ class _HomePageState extends State<HomePage> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Control Escolar",
-            style: TextStyle(
-              fontSize: 26.0,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
+            title: Center(
+          child: Text('Control Escolar',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 26.0,
+              )),
+        )),
         body: Padding(
           padding: EdgeInsets.all(10.0),
           child: ListView(

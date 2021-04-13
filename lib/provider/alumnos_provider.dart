@@ -48,6 +48,7 @@ class EstudiantesProvider with ChangeNotifier {
   void agregarEstudiante(Estudiante p) {
     var r = Random();
     p.id = r.nextInt(43434);
+    p.foto = "https://img.icons8.com/dusk/64/human-head.png";
     _lista.add(p);
     notifyListeners();
   }
