@@ -25,14 +25,14 @@ class _BajasPageState extends State<BajasPage> {
 
   Widget listCarrito(BuildContext context) {
     final carrito = Provider.of<EstudiantesProvider>(context);
-    return carrito.getCarrito.length == 0
+    return carrito.getBajas.length == 0
         ? Center(child: Text("No hay alumnos dados de baja actualmente"))
         : Column(children: [
             Expanded(
               child: ListView.builder(
-                itemCount: carrito.getCarrito.length,
+                itemCount: carrito.getBajas.length,
                 itemBuilder: (BuildContext context, i) {
-                  Estudiante p = carrito.getCarrito[i];
+                  Estudiante p = carrito.getBajas[i];
                   return Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Card(
@@ -97,7 +97,7 @@ class _BajasPageState extends State<BajasPage> {
                             ),
                             onTap: () {
                               if (p.activo == true) {
-                                carrito.quitarCarro(p);
+                                carrito.reintegrarALaLista(p);
                               }
                             },
                           ),

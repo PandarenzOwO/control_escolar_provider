@@ -31,9 +31,9 @@ class _ListaPageState extends State<ListaPage> {
   Widget listProductos(BuildContext context) {
     final listaAlumnos = Provider.of<EstudiantesProvider>(context);
     return ListView.builder(
-      itemCount: listaAlumnos.getProductos.length,
+      itemCount: listaAlumnos.getLista.length,
       itemBuilder: (context, i) {
-        Estudiante p = listaAlumnos.getProductos[i];
+        Estudiante p = listaAlumnos.getLista[i];
         return Padding(
           padding:
               EdgeInsets.only(left: 12.0, right: 12.0, top: 5.0, bottom: 5.0),
@@ -103,7 +103,7 @@ class _ListaPageState extends State<ListaPage> {
                                 : Colors.red[900]),
                         onPressed: () {
                           if (p.activo == true) {
-                            listaAlumnos.agregarCarrito(p);
+                            listaAlumnos.mandarDeBaja(p);
                           } else {
                             print("Ese alumno ya esta dado de baja");
                             showDialog(

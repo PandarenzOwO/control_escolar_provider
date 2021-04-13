@@ -43,7 +43,7 @@ class EstudiantesProvider with ChangeNotifier {
         activo: true),
   ];
 
-  List<Estudiante> _carrito = [];
+  List<Estudiante> _bajas = [];
 
   void agregarEstudiante(Estudiante p) {
     var r = Random();
@@ -53,10 +53,10 @@ class EstudiantesProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void agregarCarrito(Estudiante p) {
-    if (_carrito.any((x) => x.id == p.id)) {
+  void mandarDeBaja(Estudiante p) {
+    if (_bajas.any((x) => x.id == p.id)) {
       p.activo = false;
-      _carrito.firstWhere((x) => x.id == p.id).activo = true;
+      _bajas.firstWhere((x) => x.id == p.id).activo = true;
     } else {
       Estudiante ptemp = Estudiante(
           activo: true,
@@ -68,32 +68,32 @@ class EstudiantesProvider with ChangeNotifier {
           grado: p.grado,
           grupo: p.grupo);
       p.activo = false;
-      _carrito.add(ptemp);
+      _bajas.add(ptemp);
     }
     notifyListeners();
   }
 
-  void quitarCarro(Estudiante p) {
-    if (_carrito.any((x) => x.id == p.id)) {
+  void reintegrarALaLista(Estudiante p) {
+    if (_bajas.any((x) => x.id == p.id)) {
       p.activo = false;
       _lista.firstWhere((x) => x.id == p.id).activo = true;
       if (p.activo == false) {
-        _carrito.remove(p);
+        _bajas.remove(p);
       }
       notifyListeners();
     }
   }
 
-  List<Estudiante> get getProductos {
+  List<Estudiante> get getLista {
     return _lista;
   }
 
-  List<Estudiante> get getCarrito {
-    return _carrito;
+  List<Estudiante> get getBajas {
+    return _bajas;
   }
 
-  void pagar() {
-    _carrito.clear();
+  void eliminarTodasLasBajas() {
+    _bajas.clear();
     notifyListeners();
   }
 }
